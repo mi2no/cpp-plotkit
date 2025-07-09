@@ -1,1 +1,1 @@
-A small header for C++ vector plotting with no dependencies.
+A small header for C++ plotting with no dependencies.
