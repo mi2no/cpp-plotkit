@@ -1,6 +1,3 @@
-// Autor: Michał Nogalski
-// Kod pisany samodzielnie
-
 #pragma once
 
 #ifndef __CPP_PLOT_PATH
@@ -9,7 +6,7 @@
 
 #include <string>
 #include <sstream>
-#include "canvas.hpp"
+//#include "canvas.hpp"
 
 template <typename prec = float>
 class path {
@@ -318,7 +315,7 @@ public:
 
     void move_to(const prec& x, const prec& y) {
         element* const next = new element;
-        next->points =  (prec*)malloc(sizeof(prec) << 1); //new prec[2]{ x, y };
+        next->points = (prec*)malloc(sizeof(prec) << 1); //new prec[2]{ x, y };
         next->points[0] = x;
         next->points[1] = y;
         if (x < min_x) min_x = x;
@@ -333,7 +330,7 @@ public:
 
     void line_to(const prec& x, const prec& y) {
         element* const next = new element;
-        next->points =  (prec*)malloc(sizeof(prec) << 1); //new prec[2]{ x, y };
+        next->points = (prec*)malloc(sizeof(prec) << 1); //new prec[2]{ x, y };
         next->points[0] = x;
         next->points[1] = y;
         next->type = 1u;
@@ -347,7 +344,7 @@ public:
 
     void horizontal_line_to(const prec& x) {
         element* const next = new element;
-        next->points =  (prec*)malloc(sizeof(prec)); //new prec[1]{ y };
+        next->points = (prec*)malloc(sizeof(prec)); //new prec[1]{ y };
         next->points[0] = x;
         next->type = 2u;
         if (x < min_x) min_x = x;
@@ -358,7 +355,7 @@ public:
 
     void vertical_line_to(const prec& y) {
         element* const next = new element;
-        next->points =  (prec*)malloc(sizeof(prec)); //new prec[1]{ y };
+        next->points = (prec*)malloc(sizeof(prec)); //new prec[1]{ y };
         next->points[0] = y;
         next->type = 3u;
         if (y < min_y) min_y = y;
@@ -413,7 +410,7 @@ public:
     }
 
     // This should just be part of the canvas interface
-    unsigned char* render(const unsigned int& width, const unsigned int& height) {
+    /*unsigned char* render(const unsigned int& width, const unsigned int& height) {
         unsigned char* const buffer = (unsigned char*)calloc(width * height, 1);
         canvas c { buffer, width, height, IMAGE_GRAYSCALE };
 
@@ -446,7 +443,7 @@ public:
         }
         if (close && (origin_x != x || origin_y != y)) c.draw_line_2(x, y, origin_x, origin_y, 0xFFu);
 
-        /*for (unsigned int i = 1; i < height - 1; ++i) {
+        for (unsigned int i = 1; i < height - 1; ++i) {
             bool inside = buffer[i * width];
             bool empty = !inside;
             for (unsigned int j = 1; j < width - 1; ++j) {
@@ -458,10 +455,10 @@ public:
                     buffer[i * width + j] = 0xFF;
                 }
             }
-        }*/
+        }
 
         return buffer;
-    }
+    }*/
 
     void clear() {
         while (start != end) {

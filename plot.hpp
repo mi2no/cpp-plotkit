@@ -1,6 +1,3 @@
-// Autor: Michał Nogalski
-// Kod pisany samodzielnie
-
 #pragma once
 
 #include <string>
@@ -183,7 +180,6 @@ public:
 private:
 
 	struct data_pair {
-		//double *x = nullptr, *y = nullptr;
 		data_set x, y;
 		size_t _size = 0u;
 		unsigned char copy_info = 0u;
@@ -249,106 +245,6 @@ public:
 			if (value > __max_y) __max_y = value;
 		}
 	}
-
-	/*template <typename iterator1, typename iterator2>
-	void add(iterator1 _x, iterator2 _y, const size_t& size, const unsigned int& color, const SOURCE_MODE& x_mode = AUTO, const SOURCE_MODE y_mode = AUTO) {
-		data_pair* resized = (data_pair*)malloc(sizeof(data_pair) * ++_size);
-		if (_size - 1) {
-			memcpy(resized, pairs, sizeof(data_pair) * (_size - 1));
-			free(pairs);
-		}
-		pairs = resized;
-		resized += _size - 1;
-		resized->_size = size;
-		resized->color = color;
-		resized->copy_info = 0u;
-		if (x_mode != COPY && typeid(_x).name() == typeid(resized->x).name()) {
-			resized->x = (double*)_x;
-			if (x_mode == OWN) resized->copy_info |= 1;
-		}
-		else {
-			double* copy = (double*)malloc(sizeof(double) * size);
-			for (unsigned int i = 0; i < size; ++i) copy[i] = *_x++;
-			resized->x = copy;
-			resized->copy_info |= 1;
-		}
-		if (y_mode != COPY && typeid(_y).name() == typeid(resized->y).name()) {
-			resized->y = (double*)_y;
-			if (y_mode == OWN) resized->copy_info |= 0b10;
-		}
-		else {
-			//puts(typeid(_y).name());
-			//puts(typeid(resized->y).name());
-			double* copy = (double*)malloc(sizeof(double) * size);
-			for (unsigned int i = 0; i < size; ++i) copy[i] = *_y++;
-			resized->y = copy;
-			resized->copy_info |= 0b10;
-		}
-	}
-
-	template <typename iterator, typename T>
-	void add(iterator _x, const T& _y_start, const T& _y_inc, const size_t& size, const unsigned int& color, const SOURCE_MODE& x_mode = AUTO) {
-		data_pair* resized = (data_pair*)malloc(sizeof(data_pair) * ++_size);
-		if (_size - 1) {
-			memcpy(resized, pairs, sizeof(data_pair) * (_size - 1));
-			free(pairs);
-		}
-		pairs = resized;
-		resized += _size - 1;
-		resized->_size = size;
-		resized->color = color;
-		resized->copy_info = 0u;
-		if (x_mode != COPY && typeid(_x).name() == typeid(resized->x).name()) {
-			resized->x = (double*)_x;
-			if (x_mode == OWN) resized->copy_info |= 1;
-		}
-		else {
-			double* copy = (double*)malloc(sizeof(double) * size);
-			for (unsigned int i = 0; i < size; ++i) copy[i] = *_x++;
-			resized->x = copy;
-			resized->copy_info |= 1;
-		}
-		//puts(typeid(_y).name());
-		//puts(typeid(resized->y).name());
-		double* copy = (double*)malloc(sizeof(double) * size);
-		*copy = (double)_y_start;
-		for (unsigned int i = 1; i < size; ++i) copy[i] = copy[i - 1] + _y_inc;
-		resized->y = copy;
-		resized->copy_info |= 0b10;
-	}
-
-	template <typename T, typename iterator>
-	void add(const T& _x_start, const T& _x_inc, iterator _y, const size_t& size, const unsigned int& color, const SOURCE_MODE& y_mode = AUTO) {
-		data_pair* resized = (data_pair*)malloc(sizeof(data_pair) * ++_size);
-		if (_size - 1) {
-			memcpy(resized, pairs, sizeof(data_pair) * (_size - 1));
-			free(pairs);
-		}
-		pairs = resized;
-		resized += _size - 1;
-		resized->_size = size;
-		resized->color = color;
-		resized->copy_info = 0u;
-		{
-			double* copy = (double*)malloc(sizeof(double) * size);
-			*copy = (double)_x_start;
-			for (unsigned int i = 1; i < size; ++i) copy[i] = copy[i - 1] + _x_inc;
-			resized->x = copy;
-			resized->copy_info |= 1;
-		}
-		if (y_mode != COPY && typeid(_y).name() == typeid(resized->y).name()) {
-			resized->y = (double*)_y;
-			if (y_mode == OWN) resized->copy_info |= 0b10;
-		}
-		else {
-			//puts(typeid(_y).name());
-			//puts(typeid(resized->y).name());
-			double* copy = (double*)malloc(sizeof(double) * size);
-			for (unsigned int i = 0; i < size; ++i) copy[i] = *_y++;
-			resized->y = copy;
-			resized->copy_info |= 0b10;
-		}
-	}*/
 
 	void set_title(const std::string& str) { title = str; }
 
